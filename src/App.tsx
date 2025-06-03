@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { TodoInput } from './components/TodoInput';
+import { TodoList } from './components/TodoList';
+import { Footer } from './components/Footer';
+import { useTodos } from './hooks/useTodos';
 
-function App() {
+const App: React.FC = () => {
+
+
+
+  
+  const {
+    todos,
+    addTodo,
+    toggleTodo,
+    clearCompleted,
+    setFilter,
+    itemsLeft,
+    currentFilter
+  } = useTodos();
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="todo-app">
+      <h1 className="todo-header">ToDo List</h1>
+      <TodoInput onAdd={addTodo} />
+      <TodoList todos={todos} onToggle={toggleTodo} />
+      <Footer
+        itemsLeft={itemsLeft}
+        currentFilter={currentFilter}
+        onFilterChange={setFilter}
+        onClearCompleted={clearCompleted}
+      />
     </div>
   );
-}
+};
 
 export default App;
