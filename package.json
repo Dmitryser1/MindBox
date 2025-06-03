@@ -19,8 +19,7 @@
     "uuid": "^11.1.0",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://Dmitryser1.github.io/mindbox",
-
+  "homepage": "https://dmitryser1.github.io/MindBox/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
